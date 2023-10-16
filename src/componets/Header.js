@@ -28,7 +28,7 @@ const Header = () => {
     };
     return (
         <div className='flex justify-between bg-red-400 p-4'>
-            <h1>Optimite</h1>
+            <h1 className='text-3xl font-bold text-indigo-700'>Optimite</h1>
             <div >
 
                 <select
