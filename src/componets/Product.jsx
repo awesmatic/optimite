@@ -1,7 +1,14 @@
 import React from 'react'
 import { Link } from "react-router-dom";
+import { useDataContext } from '../DataContext';
 
 const Product = (props) => {
+    const { data, setData } = useDataContext();
+
+    const onDelete = (itemId) => {
+        const updatedData = data.filter(item => item.id !== itemId);
+        setData(updatedData);
+    };
     return (
 
         <div className="max-w-sm rounded overflow-hidden shadow-lg m-2">
@@ -12,7 +19,7 @@ const Product = (props) => {
                     <p className="text-gray-700">${props.product.price}</p>
                 </div>
                 <div className="px-6 py-4">
-                    <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md">Delete</button>
+                    <button onClick={() => onDelete(props.product.id)} className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md">Delete</button>
                 </div>
             </div>
         </div>
